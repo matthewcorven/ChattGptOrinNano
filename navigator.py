@@ -105,7 +105,12 @@ class MenuNavigator:
                     if 'favorites' in config:
                         for key, script_name in config['favorites'].items():
                             if script_name:
-                                self.favorites[int(key)] = script_name
+                                # Find the corresponding ScriptInfo object
+                                script_info = next((s for s in self.scripts if s.name == script_name), None)
+                                if script_info:
+                                    self.favorites[int(key)] = script_info
+                                else:
+                                    print(f"{Colors.YELLOW}Warning: Script '{script_name}' not found in scripts directory.{Colors.RESET}")
             except (json.JSONDecodeError, KeyError, ValueError) as e:
                 print(f"{Colors.YELLOW}Warning: Could not load config file: {e}{Colors.RESET}")
     
