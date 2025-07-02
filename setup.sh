@@ -75,6 +75,8 @@ mkdir -p "$PROJECT_DIR/scripts/hello_jetson"
 mkdir -p "$PROJECT_DIR/scripts/system_info"
 mkdir -p "$PROJECT_DIR/scripts/pytorch_test"
 
+# Mark all Python scripts in the scripts directory as executable
+find "$PROJECT_DIR/scripts" -name '*.py' -exec chmod +x {} \;
 # Hello Jetson example
 cat > "$PROJECT_DIR/scripts/hello_jetson/main.py" << 'EOF'
 #!/usr/bin/env python3
