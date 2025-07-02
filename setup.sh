@@ -20,7 +20,7 @@ add_to_shell_config() {
     
     if [[ -f "$config_file" ]]; then
         # Check if already configured
-        if grep -q "ChattGptOrinNano" "$config_file"; then
+        if grep -q "# ChattGptOrinNano Navigator Auto-Start" "$config_file"; then
             echo "✓ $config_name already configured"
             return 0
         fi
